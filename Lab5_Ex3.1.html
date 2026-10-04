@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Infographic về thói quen sống xanh và video hướng dẫn.">
-  <title>Sống xanh mỗi ngày | Infographic & Video</title>
+  <meta name="description" content="Trang giới thiệu thông tin cá nhân và các sản phẩm học tập.">
+  <title>Giới thiệu bản thân | Hồ sơ cá nhân</title>
   <style>
     :root {
       color-scheme: light;
-      --ink: #17372e;
-      --muted: #61756d;
+      --ink: #18352d;
+      --muted: #62756e;
       --green: #2d7758;
-      --lime: #c9e8a5;
-      --cream: #f7f7ef;
+      --lime: #d8efb8;
+      --cream: #f5f7f1;
       --white: #fff;
+      --line: #e4ebe3;
     }
 
     * { box-sizing: border-box; }
@@ -27,13 +28,13 @@
     }
 
     .page {
-      width: min(1100px, calc(100% - 32px));
+      width: min(1080px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 48px 0 64px;
+      padding: 48px 0 32px;
     }
 
     .eyebrow {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       color: var(--green);
       font-size: .78rem;
       font-weight: 800;
@@ -41,129 +42,134 @@
       text-transform: uppercase;
     }
 
-    h1, h2, p { margin-top: 0; }
+    .profile {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 32px;
+      padding: clamp(28px, 6vw, 64px);
+      border-radius: 28px;
+      background: var(--white);
+      box-shadow: 0 18px 55px #18352d12;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
 
     h1 {
-      max-width: 720px;
       margin-bottom: 12px;
-      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
       letter-spacing: -.055em;
-      line-height: 1.04;
+      line-height: 1.05;
     }
 
     .intro {
       max-width: 650px;
-      margin-bottom: 32px;
+      margin-bottom: 22px;
       color: var(--muted);
       font-size: 1.08rem;
     }
 
-    .infographic {
-      overflow: hidden;
-      border-radius: 28px;
+    .profile-mark {
+      display: grid;
+      width: clamp(96px, 18vw, 160px);
+      aspect-ratio: 1;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lime);
+      color: var(--green);
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 800;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 22px 0 56px;
+    }
+
+    .detail {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
       background: var(--white);
-      box-shadow: 0 18px 55px #17372e12;
     }
 
-    .banner {
-      display: flex;
-      min-height: 210px;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 36px clamp(24px, 6vw, 64px);
-      background: var(--green);
-      color: var(--white);
-    }
-
-    .banner h2 {
-      max-width: 520px;
-      margin-bottom: 8px;
-      font-size: clamp(1.7rem, 4vw, 2.8rem);
-      letter-spacing: -.04em;
-      line-height: 1.1;
-    }
-
-    .banner p { margin-bottom: 0; color: #e2f0e7; }
-
-    .sun {
-      display: grid;
-      width: 104px;
-      height: 104px;
-      flex: 0 0 auto;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--lime);
-      color: var(--green);
-      font-size: 3.3rem;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      padding: 28px clamp(20px, 5vw, 52px) 12px;
-    }
-
-    .stat {
-      padding: 20px;
-      border-radius: 18px;
-      background: #f1f6ec;
-    }
-
-    .stat strong {
+    .detail span {
       display: block;
-      color: var(--green);
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      letter-spacing: -.05em;
-      line-height: 1.15;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: .84rem;
     }
 
-    .stat span { color: var(--muted); font-size: .92rem; }
+    .detail strong { overflow-wrap: anywhere; }
 
-    .steps {
+    .section-heading { margin-bottom: 22px; }
+
+    .section-heading h2 {
+      margin-bottom: 6px;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -.04em;
+    }
+
+    .section-heading p { margin-bottom: 0; color: var(--muted); }
+
+    .products {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      padding: 22px clamp(20px, 5vw, 52px) 42px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
     }
 
-    .step {
-      position: relative;
-      padding-top: 16px;
-      border-top: 3px solid var(--lime);
+    .product {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: 0 12px 35px #18352d0b;
     }
 
-    .step b {
-      display: inline-grid;
-      width: 34px;
-      height: 34px;
+    .product-copy { padding: 20px 22px 4px; }
+
+    .product h3 {
+      margin-bottom: 4px;
+      font-size: 1.15rem;
+    }
+
+    .product-copy p {
       margin-bottom: 12px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .pdf-preview {
+      display: block;
+      width: 100%;
+      height: 390px;
+      border: 0;
+      background: #eef2ec;
+    }
+
+    .image-preview {
+      display: grid;
+      min-height: 300px;
+      padding: 14px;
       place-items: center;
-      border-radius: 50%;
-      background: var(--lime);
-      color: var(--green);
+      background: #eef2ec;
     }
 
-    .step h3 { margin: 0 0 6px; font-size: 1rem; }
-    .step p { margin: 0; color: var(--muted); font-size: .92rem; }
-
-    .video-section { padding-top: 48px; }
-
-    .video-section h2 {
-      margin-bottom: 8px;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      letter-spacing: -.035em;
+    .image-preview img {
+      display: block;
+      width: 100%;
+      max-height: 390px;
+      object-fit: contain;
     }
 
-    .video-section > p { color: var(--muted); }
+    .video-product { grid-column: 1 / -1; }
 
     .video-frame {
       overflow: hidden;
       aspect-ratio: 16 / 9;
-      border-radius: 22px;
-      background: #17372e;
-      box-shadow: 0 18px 55px #17372e18;
+      background: #18352d;
     }
 
     .video-frame iframe {
@@ -173,94 +179,126 @@
       border: 0;
     }
 
-    .note {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: .86rem;
+    .product-link {
+      display: inline-block;
+      margin: 0 22px 20px;
+      color: var(--green);
+      font-weight: 700;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
     }
 
-    @media (max-width: 680px) {
-      .page { padding-top: 32px; }
-      .banner { min-height: 180px; }
-      .sun { width: 72px; height: 72px; font-size: 2.3rem; }
-      .stats, .steps { grid-template-columns: 1fr; }
-      .stats { gap: 10px; }
-      .stat { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-      .steps { gap: 18px; padding-top: 14px; }
+    .product-link:hover { color: #1b5039; }
+
+    .footer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: .84rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .page { padding-top: 24px; }
+      .profile { grid-template-columns: 1fr; }
+      .profile-mark { grid-row: 1; }
+      .details { grid-template-columns: repeat(2, 1fr); margin-bottom: 42px; }
+      .products { grid-template-columns: 1fr; }
+      .video-product { grid-column: auto; }
+    }
+
+    @media (max-width: 440px) {
+      .details { grid-template-columns: 1fr; }
+      .pdf-preview { height: 320px; }
     }
   </style>
 </head>
 <body>
   <main class="page">
-    <header>
-      <p class="eyebrow">Infographic • Sống xanh</p>
-      <h1>Thay đổi nhỏ, tác động lớn</h1>
-      <p class="intro">
-        Một vài lựa chọn mỗi ngày có thể giúp giảm rác thải và sử dụng tài nguyên
-        có trách nhiệm hơn. Bắt đầu từ những việc đơn giản nhất.
-      </p>
+    <header class="profile">
+      <div>
+        <p class="eyebrow">Hồ sơ cá nhân</p>
+        <h1>Xin chào, mình là Phan Tấn Ngọc</h1>
+        <p class="intro">
+          Mình là sinh viên ngành An toàn thông tin, yêu thích cầu lông.
+          Đây là nơi giới thiệu đôi nét về bản thân và những sản phẩm mình đã thực hiện.
+        </p>
+      </div>
+      <div class="profile-mark" aria-hidden="true">👋</div>
     </header>
 
-    <section class="infographic" aria-labelledby="info-title">
-      <div class="banner">
-        <div>
-          <p class="eyebrow" style="color:#c9e8a5">3 bước dễ bắt đầu</p>
-          <h2 id="info-title">Sống xanh từ hôm nay</h2>
-          <p>Chọn một thói quen phù hợp và duy trì mỗi ngày.</p>
-        </div>
-        <div class="sun" aria-hidden="true">☀</div>
+    <section class="details" aria-label="Thông tin cá nhân">
+      <div class="detail">
+        <span>Mã số sinh viên</span>
+        <strong>B2605445</strong>
+      </div>
+      <div class="detail">
+        <span>Lớp học phần</span>
+        <strong>CT005/D05</strong>
+      </div>
+      <div class="detail">
+        <span>Ngành học</span>
+        <strong>An toàn thông tin</strong>
+      </div>
+      <div class="detail">
+        <span>Sở thích</span>
+        <strong>Cầu lông</strong>
+      </div>
+    </section>
+
+    <section aria-labelledby="products-title">
+      <div class="section-heading">
+        <p class="eyebrow">Bài tập thực hành</p>
+        <h2 id="products-title">Các sản phẩm của mình</h2>
+        <p>Một số sản phẩm đã thực hiện trong học phần.</p>
       </div>
 
-      <div class="stats" aria-label="Ba gợi ý sống xanh">
-        <div class="stat">
-          <strong>01</strong>
-          <span>Mang bình nước cá nhân</span>
-        </div>
-        <div class="stat">
-          <strong>02</strong>
-          <span>Ưu tiên đi bộ hoặc xe đạp</span>
-        </div>
-        <div class="stat">
-          <strong>03</strong>
-          <span>Phân loại rác tại nhà</span>
-        </div>
-      </div>
+      <div class="products">
+        <article class="product">
+          <div class="product-copy">
+            <h3>Sản phẩm PDF</h3>
+            <p>Tài liệu thực hành nhiệm vụ 1.2.</p>
+          </div>
+          <iframe
+            class="pdf-preview"
+            src="Lab05_Ex1.2.pdf"
+            title="Xem trước sản phẩm PDF Lab05_Ex1.2"
+            loading="lazy">
+          </iframe>
+          <a class="product-link" href="Lab05_Ex1.2.pdf" target="_blank" rel="noopener">Mở hoặc tải file PDF</a>
+        </article>
 
-      <div class="steps">
-        <article class="step">
-          <b>1</b>
-          <h3>Bắt đầu thật nhỏ</h3>
-          <p>Chọn một việc bạn có thể làm ngay hôm nay.</p>
+        <article class="product">
+          <div class="product-copy">
+            <h3>Sản phẩm hình ảnh</h3>
+            <p>Ảnh infographic thực hiện trong nhiệm vụ 2.1.</p>
+          </div>
+          <a class="image-preview" href="Lab05_Ex2.1.png" target="_blank" rel="noopener" aria-label="Mở ảnh PNG kích thước đầy đủ">
+            <img src="Lab05_Ex2.1.png" alt="Sản phẩm hình ảnh Lab05_Ex2.1">
+          </a>
+          <a class="product-link" href="Lab05_Ex2.1.png" download>Tải file PNG</a>
         </article>
-        <article class="step">
-          <b>2</b>
-          <h3>Lặp lại mỗi ngày</h3>
-          <p>Đặt lời nhắc để biến lựa chọn tốt thành thói quen.</p>
-        </article>
-        <article class="step">
-          <b>3</b>
-          <h3>Lan tỏa cùng nhau</h3>
-          <p>Chia sẻ cách làm hữu ích với gia đình và bạn bè.</p>
+
+        <article class="product video-product">
+          <div class="product-copy">
+            <h3>Sản phẩm video</h3>
+            <p>Video YouTube được nhúng trực tiếp trên trang.</p>
+          </div>
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/8gsqFf2DflY"
+              title="Video YouTube về lối sống xanh"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="video-section" aria-labelledby="video-title">
-      <p class="eyebrow">Xem thêm</p>
-      <h2 id="video-title">Video hướng dẫn</h2>
-      <p>Tìm hiểu thêm qua video YouTube được nhúng trực tiếp bên dưới.</p>
-      <div class="video-frame">
-        <!-- Thay VIDEO_ID bằng mã video trong đường dẫn YouTube, ví dụ: youtube.com/watch?v=VIDEO_ID -->
-        <iframe
-          src="https://www.youtube.com/embed/8gsqFf2DflY"
-          title="Video YouTube về lối sống xanh"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <p class="note">Để phát video, hãy thay <code>VIDEO_ID</code> trong thuộc tính <code>src</code> bằng mã video YouTube của bạn.</p>
-    </section>
+    <footer class="footer">
+      <p>Trang được thực hiện với sự hỗ trợ của GitHub Copilot; video thuộc quyền sở hữu của chủ kênh YouTube.</p>
+    </footer>
   </main>
 </body>
 </html>
