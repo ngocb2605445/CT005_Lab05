@@ -166,10 +166,47 @@
 
     .video-product { grid-column: 1 / -1; }
 
-    .video-frame {
+    .video-link {
+      display: flex;
       overflow: hidden;
       aspect-ratio: 16 / 9;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 24px;
       background: #18352d;
+      color: var(--white);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .video-link:hover { background: #245640; }
+
+    .play-icon {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      flex: 0 0 auto;
+      place-items: center;
+      padding-left: 4px;
+      border-radius: 50%;
+      background: var(--lime);
+      color: var(--green);
+      font-size: 1.6rem;
+    }
+
+    .video-link strong {
+      display: block;
+      font-size: clamp(1rem, 3vw, 1.4rem);
+    }
+
+    .video-link span:last-child { color: #e2f0e7; }
+
+    .video-product .product-copy { padding-bottom: 20px; }
+
+    .video-link:focus-visible {
+      outline: 3px solid var(--lime);
+      outline-offset: -6px;
     }
 
     .video-frame iframe {
@@ -283,15 +320,18 @@
             <h3>Sản phẩm video</h3>
             <p>Video YouTube được nhúng trực tiếp trên trang.</p>
           </div>
-          <div class="video-frame">
-            <iframe
-              src="https://www.youtube.com/embed/8gsqFf2DflY"
-              title="Video YouTube về lối sống xanh"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
+          <a
+            class="video-link"
+            href="https://www.youtube.com/watch?v=8gsqFf2DflY"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Mở video Sống xanh là gì? trên YouTube trong tab mới">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span>
+              <strong>Sống xanh là gì? - Có khó không?</strong>
+              Nhấn để xem trên YouTube
+            </span>
+          </a>
         </article>
       </div>
     </section>
